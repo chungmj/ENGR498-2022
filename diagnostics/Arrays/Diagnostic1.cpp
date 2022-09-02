@@ -50,11 +50,22 @@ int main()
 	* Step 2: Calculate the minimum, maximum, and average of the array
 	*/
 
-	int min = -1;
-	int max = -1;
+	int min = data[0];
+	int max = data[0];
 	int average = -1;
 
 	//YOUR CODE GOES HERE//
+	for (int i = 0; i < length; i++)
+	{
+		if (data[i] > max)
+		{
+			max = data[i];
+		}
+		if (data[i] < min)
+		{
+			min = data[i];
+		}
+	}
 
 	cout << "Minimum value is: " << min << endl;
 	cout << "Maximum value is: " << max << endl;
