@@ -14,7 +14,15 @@
    Useful when calling registers such as readRegister(DATA_FORMAT)
 */
 #define DEVICE_ID_REG_ADDRESS 0x0
-
+#define BW_RATE 0x2C
+#define POWER_CLT 0x2D
+#define DATA_FORMAT 0x31
+#define X_DATA_0 0x32
+#define X_DATA_1 0x33
+#define Y_DATA_0 0x34
+#define Y_DATA_1 0x35
+#define Z_DATA_0 0x36
+#define Z_DATA_1 0x37
 
 
 //include SPI header from Arduino
@@ -73,7 +81,7 @@ public:
 	 * 
 	 * \return int16_t X-axis acceleration in local units.
 	 */
-	int16_t getXAcceleteration();
+	int16_t getXAcceleration();
 	
 	/**
 	 * \brief Read acceleration from Y-axis. Result is raw reading in local units.
@@ -81,7 +89,7 @@ public:
 	 * 
 	 * \return int16_t Y-axis acceleration in local units.
 	 */
-	int16_t getYAcceleteration();
+	int16_t getYAcceleration();
 	
 	/**
 	 * \brief Read acceleration from Z-axis. Result is raw reading in local units.
@@ -89,9 +97,18 @@ public:
 	 * 
 	 * \return int16_t Z-axis acceleration in local units.
 	 */
-	int16_t getZAcceleteration();
+	int16_t getZAcceleration();
 	
-
+	/**
+	 * \brief Converts an ADXL345 acceleration reading into G's
+	 * 
+	 * \param  Raw ADXL345 acceleration reading
+	 * 
+	 * \return float Acceleration in terms of Gs
+	 */
+	float convertRawToFloat(int16_t);
+	
+	
 	
 protected:
 
